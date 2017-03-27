@@ -29,12 +29,9 @@ export function handleErrors(res: Respondable<any>, params?: any) : Respondable<
 @Tags("success")
 class GenericSuccessHandler implements HandleResponse<any> {
 
-    @Parameter({description: "Success msg", pattern: "@any"})
-    msg: string
-
     handle(response: Response<any>): Message {
         //TODO - render the body?
-        return new Message(renderSuccess(`${this.msg}`));
+        return new Message(renderSuccess(response.msg()));
     }
 }
 
