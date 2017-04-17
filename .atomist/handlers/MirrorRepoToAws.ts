@@ -1,10 +1,10 @@
-import {HandleResponse, MappedParameters, HandleEvent, Execute, Respondable, HandleCommand, Respond, Instruction, Response, HandlerContext , Plan, Message} from '@atomist/rug/operations/Handlers'
+import {HandleResponse, MappedParameters, HandleEvent, Execute, Respondable, HandleCommand, Respond, Instruction, Response, HandlerContext , Plan} from '@atomist/rug/operations/Handlers'
 import {TreeNode, Match, PathExpression} from '@atomist/rug//tree/PathExpression'
 import {EventHandler, ResponseHandler, ParseJson, CommandHandler, Secrets, MappedParameter, Parameter, Tags, Intent} from '@atomist/rug/operations/Decorators'
 import {Project} from '@atomist/rug/model/Core'
 import {wrap} from './Common'
 
-@CommandHandler("MirroGithubRepoToS3","Mirror a GitHub repo contents to S3")
+@CommandHandler("MirrorGithubRepoToS3","Mirror a GitHub repo contents to S3")
 @Tags("github", "aws", "s3")
 @Intent("mirror github repo s3")
 @Secrets("github://user_token?scopes=repo", "secret://team?path=aws/access_key", "secret://team?path=aws/secret_key")

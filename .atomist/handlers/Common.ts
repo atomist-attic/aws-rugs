@@ -1,4 +1,4 @@
-import {HandleResponse, Response, HandlerContext, Respondable, Message} from '@atomist/rug/operations/Handlers'
+import {HandleResponse, Response, HandlerContext, Respondable, ResponseMessage, Plan} from '@atomist/rug/operations/Handlers'
 import {ResponseHandler, Parameter, Tags} from '@atomist/rug/operations/Decorators'
 import {renderError, renderSuccess} from './SlackTemplates'
 
@@ -12,10 +12,10 @@ class GenericErrorHandler implements HandleResponse<any> {
     @Parameter({description: "Correlation ID", pattern: "@any", required: false})
     corrid: string
 
-    handle(response: Response<any>): Message {
+    handle(response: Response<any>): Plan {
         let body = response.body() != null ? "(" + response.body() + ")": ""
         let msg = this.msg == undefined ? "" : this.msg
-        return new Message(renderError(`${msg}${response.msg()}${body}`, this.corrid));
+        return Plan.ofMessage(new ResponseMessage(renderError(`${msg}${response.msg}${body}`, this.corrid)));
     }
 }
 
@@ -29,9 +29,9 @@ export function handleErrors(res: Respondable<any>, params?: any) : Respondable<
 @Tags("success")
 class GenericSuccessHandler implements HandleResponse<any> {
 
-    handle(response: Response<any>): Message {
+    handle(response: Response<any>): Plan {
         //TODO - render the body?
-        return new Message(renderSuccess(response.msg()));
+        return Plan.ofMessage(new ResponseMessage(renderSuccess(response.msg)));
     }
 }
 
