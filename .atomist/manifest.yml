@@ -1,4 +1,4 @@
-group: "atomist-rugs"
+group: "atomist"
 artifact: "aws-handlers"
 version: "0.1.0"
 requires: "0.25.2"
