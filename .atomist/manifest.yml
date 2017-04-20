@@ -3,4 +3,4 @@ artifact: "aws-handlers"
 version: "0.2.0"
 requires: "0.25.2"
 extensions:
-  - "com.atomist.rug:rug-functions-aws:0.5.0-SNAPSHOT"
+  - "com.atomist.rug:rug-functions-aws:0.5.0"

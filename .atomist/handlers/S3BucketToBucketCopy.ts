@@ -27,12 +27,9 @@ class S3BucketToBucketCopy implements HandleCommand {
     result.add(wrap({instruction:
               {name: "CopyS3Bucket",
               kind: "execute",
-              parameters:
-                  { region: this.region,
-                    sourceBucket: this.sourceBucket,
-                    destinationBucket: this.destinationBucket }}}, `Successfully copied ${this.sourceBucket} to ${this.destinationBucket} in ${this.region}`,this))
+              parameters: this }}, `Successfully copied ${this.sourceBucket} to ${this.destinationBucket} in ${this.region}`,this))
     return result;
   }
 }
 
-export let searcher = new S3BucketToBucketCopy();
+export const searcher = new S3BucketToBucketCopy();
