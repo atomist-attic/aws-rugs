@@ -4,7 +4,7 @@ import {EventHandler, ResponseHandler, ParseJson, CommandHandler, Secrets, Mappe
 import {Project} from '@atomist/rug/model/Core'
 import {wrap} from './Common'
 
-@CommandHandler("MirrorGithubRepoToS3","Mirror a GitHub repo contents to S3")
+@CommandHandler("CopyS3BucketToS3Bucket","Copy an S3 Bucket's contents to another S3 Bucket")
 @Tags("github", "aws", "s3")
 @Intent("copy s3 bucket to s3 bucket")
 @Secrets("secret://team?path=aws/access_key", "secret://team?path=aws/secret_key")
