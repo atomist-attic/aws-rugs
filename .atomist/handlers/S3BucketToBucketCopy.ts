@@ -6,7 +6,7 @@ import {wrap} from './Common'
 
 @CommandHandler("MirrorGithubRepoToS3","Mirror a GitHub repo contents to S3")
 @Tags("github", "aws", "s3")
-@Intent("mirror github repo s3")
+@Intent("copy s3 bucket to s3 bucket")
 @Secrets("secret://team?path=aws/access_key", "secret://team?path=aws/secret_key")
 class S3BucketToBucketCopy implements HandleCommand {
 
