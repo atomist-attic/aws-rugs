@@ -1,6 +1,6 @@
-import * as mustache from 'mustache'
+import * as mustache from "mustache";
 
-let failure = `{
+const failure = `{
   "attachments": [
     {
       "fallback": "Unable to run command",
@@ -14,23 +14,24 @@ let failure = `{
       "text" : "{{{text}}}"
     }
   ]
-}`
+}`;
 
-//generic error rendering
+// generic error rendering
 function renderError(msg: string, corrid?: string): string {
-try{
-    return mustache.render(failure, {text: msg, corrid: corrid,
-      hasCorrelationId: function () {
-        // Due to rug bug https://github.com/atomist/rug/issues/466
-        return this.corrid !== undefined && this.corrid != "null" && this.corrid != `{"className":"Undefined"}`
-      }
-    })
-  }catch(ex) {
-    return `Failed to render message using template: ${ex}`
+  try {
+    return mustache.render(failure, {
+      text: msg, corrid,
+      // Due to rug bug https://github.com/atomist/rug/issues/466
+      hasCorrelationId: () => {
+        return this.corrid !== undefined && this.corrid !== "null" && this.corrid !== `{"className":"Undefined"}`;
+      },
+    });
+  } catch (ex) {
+    return `Failed to render message using template: ${ex}`;
   }
 }
 
-let success = `{
+const success = `{
   "attachments": [
     {
       "fallback": "{{{text}}}",
@@ -41,15 +42,15 @@ let success = `{
       "text": "{{{text}}}"
     }
   ]
-}`
+}`;
 
-//generic success rendering
+// generic success rendering
 function renderSuccess(msg: string): string {
-try{
-    return mustache.render(success, {text: msg})
-  }catch(ex) {
-    return `Failed to render message using template: ${ex}`
+  try {
+    return mustache.render(success, { text: msg });
+  } catch (ex) {
+    return `Failed to render message using template: ${ex}`;
   }
 }
 
-export {renderError, renderSuccess}
+export { renderError, renderSuccess };
