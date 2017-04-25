@@ -1,6 +1,6 @@
-group: "atomist"
-artifact: "aws-handlers"
-version: "0.2.1"
-requires: "0.26.0"
+group: atomist
+artifact: aws-rugs
+version: "0.3.0"
+requires: "[0.26.1,0.27.0)"
 extensions:
   - "com.atomist.rug:rug-functions-aws:0.6.0"
