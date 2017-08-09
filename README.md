@@ -1,7 +1,6 @@
 # Atomist 'aws-rugs'
 
 [![Build Status](https://travis-ci.org/atomist/aws-rugs.svg?branch=master)](https://travis-ci.org/atomist/aws-rugs)
-[![Slack Status](https://join.atomist.com/badge.svg)](https://join.atomist.com/)
 
 Atomist Rugs that integration with [Amazon Web Services (AWS)][aws].
 
